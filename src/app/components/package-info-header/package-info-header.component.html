@@ -1,0 +1,16 @@
+<ng-container *ngIf="isInfoEmpty" >
+<div class="info-header">
+  <h2>
+    {{info?.name}}
+  </h2>
+  <span class="jasmine-version">
+    {{lastVersion.version}}
+  </span>
+  <span class="jasmine-version">
+   Created at:  {{info?.time?.created | date: 'mm/dd/yyyy'}}
+  </span>
+  <span class="jasmine-version">
+   Last modified at:  {{info?.time?.modified | date: 'mm/dd/yyyy'}}
+  </span>
+</div>
+</ng-container>

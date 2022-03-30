@@ -1,0 +1,40 @@
+@import "mixins";
+@import "variables";
+
+.input {
+  width: 100%;
+  border: none;
+  background: $inputBorderColor;
+  color: $colorBlack;
+  margin: 8px 0;
+  outline: none;
+  padding: 12px 30px;
+  box-sizing: border-box;
+  transition: .3s;
+}
+
+.input:focus {
+  border-color: $inputBorderColor;
+  box-shadow: 0 0 8px 0 $inputBorderColor;
+}
+
+
+.p-relative {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 8px;
+  color: $iconColor;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 8px;
+  height: 16px !important;
+  width: 16px !important;
+}
+
+
+.mt-5 {
+  margin-top: 5rem;
+}

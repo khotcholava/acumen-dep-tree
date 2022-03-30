@@ -1,0 +1,12 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+:host {
+
+}
+.autocomplete {
+  background-color: $colorWhite;
+  box-shadow: $boxShadow;
+  width: 100%;
+  display: block;
+  overflow-y: scroll;
+}

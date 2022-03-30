@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  searchBaseUrl: 'https://registry.npmjs.org/-/v1/search',
+  packageInfoUrl: 'https://registry.npmjs.org'
 };
 
 /*
