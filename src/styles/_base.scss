@@ -13,6 +13,11 @@
   transition: .3s;
 }
 
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
 .input:focus {
   border-color: $inputBorderColor;
   box-shadow: 0 0 8px 0 $inputBorderColor;
@@ -35,7 +40,7 @@
 }
 
 .color-gray {
- color: $infoIconColor;
+  color: $infoIconColor;
 }
 
 .mt-5 {
@@ -63,6 +68,7 @@ ul {
 
 .section-container {
   position: relative;
+
   &:after {
     content: '';
     position: absolute;

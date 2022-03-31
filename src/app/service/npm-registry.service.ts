@@ -20,14 +20,6 @@ export class NpmRegistryService {
   ) {
   }
 
-  showLoading() {
-    this.loading.next(true);
-  }
-
-  hideLoading() {
-    this.loading.next(false);
-  }
-
   getDependencies() {
     return this.dependencies$.asObservable();
   }

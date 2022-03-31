@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Maintainers } from '../../shared/types';
+import { GITHUB_USER_URL } from '../../tokens';
 
 @Component({
   selector: 'app-collaborators',
@@ -8,7 +9,9 @@ import { Maintainers } from '../../shared/types';
 })
 export class CollaboratorsComponent implements OnInit {
 @Input() collaborators: Maintainers[]
-  constructor() { }
+  constructor(
+    @Inject(GITHUB_USER_URL) public userUrl: string
+  ) { }
 
   ngOnInit(): void {
   }

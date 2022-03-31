@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   searchBaseUrl: 'https://registry.npmjs.org/-/v1/search',
   packageInfoUrl: 'https://registry.npmjs.org',
+  githubUserUrl: 'https://github.com',
 };
 
 /*

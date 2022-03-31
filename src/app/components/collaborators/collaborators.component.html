@@ -3,9 +3,11 @@
     Maintainers
   </h3>
   <ul class="d-flex align-items-center flex-wrap justify-content-start gap-16">
-    <ng-container *ngFor="let keyword of collaborators">
+    <ng-container *ngFor="let user of collaborators">
       <li>
-        <app-chip [label]="keyword?.name"></app-chip>
+        <a [href]="userUrl + '/' + user.name" target="_blank">
+          <app-chip [label]="user?.name"></app-chip>
+        </a>
       </li>
     </ng-container>
   </ul>

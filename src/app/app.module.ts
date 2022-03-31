@@ -9,7 +9,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SharedModule } from './shared/shared.module';
-import { PACKAGE_BASE_URL, SEARCH_BASE_URL } from './tokens';
+import { GITHUB_USER_URL, PACKAGE_BASE_URL, SEARCH_BASE_URL } from './tokens';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsModule } from './icons.module';
@@ -73,7 +73,11 @@ import { PackageInfoHeaderComponent } from './components/package-info-header/pac
       useValue: environment.packageInfoUrl,
       multi: true,
     },
-
+    {
+      provide: GITHUB_USER_URL,
+      useValue: environment.githubUserUrl,
+      multi: true,
+    },
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ AutocompleteComponent ],

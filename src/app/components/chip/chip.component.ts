@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { GITHUB_USER_URL } from '../../tokens';
 
 @Component({
   selector: 'app-chip',
@@ -7,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChipComponent implements OnInit {
 @Input() label: string
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
