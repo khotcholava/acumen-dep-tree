@@ -11,8 +11,8 @@ import { overlayClickOutside } from '../utils';
 })
 export class AutocompleteDirective implements OnInit, OnDestroy {
   @Input() appAutocomplete: AutocompleteComponent;
-  private overlayRef: OverlayRef;
   destroy$ = new Subject<boolean>();
+  private overlayRef: OverlayRef;
 
   constructor(
     private host: ElementRef<HTMLInputElement>,
@@ -24,6 +24,10 @@ export class AutocompleteDirective implements OnInit, OnDestroy {
 
   get control() {
     return this.ngControl.control;
+  }
+
+  get origin() {
+    return this.host.nativeElement;
   }
 
   ngOnInit() {
@@ -41,14 +45,13 @@ export class AutocompleteDirective implements OnInit, OnDestroy {
     });
   }
 
-
   openDropdown() {
     this.overlayRef = this.overlay.create({
       width: this.origin.offsetWidth,
       maxHeight: 40 * 3,
       backdropClass: '',
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
-      positionStrategy: this.getOverlayPosition()
+      positionStrategy: this.getOverlayPosition(),
     });
 
     const template = new TemplatePortal(this.appAutocomplete.rootTemplate, this.vcr);
@@ -63,7 +66,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy {
   }
 
   private close() {
-    this.overlayRef.detach();
+    this.overlayRef?.detach();
     // @ts-ignore
     this.overlayRef = null;
   }
@@ -86,9 +89,5 @@ export class AutocompleteDirective implements OnInit, OnDestroy {
       .withPositions(positions)
       .withFlexibleDimensions(false)
       .withPush(false);
-  }
-
-  get origin() {
-    return this.host.nativeElement;
   }
 }

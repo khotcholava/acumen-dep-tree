@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NpmRegistryService } from './service/npm-registry.service';
 import { Observable } from 'rxjs';
-import { PackageInfo } from './shared/types';
+import { Dependency, PackageInfo } from './shared/types';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,20 @@ import { PackageInfo } from './shared/types';
 })
 export class AppComponent implements OnInit {
   info = this.npmRegistryService.getPackageInfo() as Observable<PackageInfo>;
+  deps$: Observable<Dependency[]>;
   loading = this.npmRegistryService.loading;
-  get isInfoEmpty() {
-    return this.info && Object.keys(this.info!)?.length > 0;
-  }
+
   constructor(
     private npmRegistryService: NpmRegistryService,
   ) {
   }
 
+  get isInfoEmpty() {
+    return this.info && Object.keys(this.info!)?.length > 0;
+  }
+
   ngOnInit() {
   }
+
 
 }

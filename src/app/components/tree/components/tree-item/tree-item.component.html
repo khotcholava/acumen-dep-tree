@@ -1,0 +1,28 @@
+<li class="tree-item mb-2" (click)="handleTreeItemClick()">
+  <div class="tree-item-title">
+      <i-feather
+        [name]="expanded
+      ? 'chevron-down'
+      : 'chevron-right'"
+        class="color-gray"></i-feather>
+    <span>
+      {{name}}
+    </span>
+  </div>
+</li>
+
+<ng-container *ngIf="expanded && insideDeps$">
+  <ng-container *ngIf="insideDeps$ | async as  insideDeps">
+    <ng-container *ngIf="insideDeps.length">
+      <ul>
+        <ng-container *ngFor="let dep of insideDeps; let i = index">
+          <div [style.margin-left.px]="20">
+            <app-tree-item
+              [name]="dep.name"
+              [version]="dep.version"></app-tree-item>
+          </div>
+        </ng-container>
+      </ul>
+    </ng-container>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,15 @@
+@import "../../../../../styles/variables";
+@import "../../../../../styles/mixins";
+
+:host {
+  .tree-item {
+    @include flex(center, space-between);
+    transition: background-color .35s linear;
+    padding: $baseSize / 2;
+    cursor: pointer;
+    &:hover {
+      background-color: $brandColorLite;
+    }
+  }
+}
+

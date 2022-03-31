@@ -6,7 +6,8 @@
     padding: 10px;
     background-color: $colorWhite;
     border-bottom: 1px solid $borderColor;
-    @include  flex(center, normal);
+    @include flex(center, normal);
+
     .navbar-brand {
       color: $brandColor;
       font-size: $brandFSize;

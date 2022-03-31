@@ -1,0 +1,12 @@
+<div class="collaborators mt-3">
+  <h3 class="section-container-title mr-2">
+    Maintainers
+  </h3>
+  <ul class="d-flex align-items-center flex-wrap justify-content-start gap-16">
+    <ng-container *ngFor="let keyword of collaborators">
+      <li>
+        <app-chip [label]="keyword?.name"></app-chip>
+      </li>
+    </ng-container>
+  </ul>
+</div>

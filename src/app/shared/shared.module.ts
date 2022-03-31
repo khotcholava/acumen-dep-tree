@@ -4,7 +4,6 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { OptionComponent } from './option/option.component';
 
 
-
 @NgModule({
   declarations: [
     AutocompleteComponent,
@@ -18,4 +17,5 @@ import { OptionComponent } from './option/option.component';
     CommonModule,
   ],
 })
-export class SharedModule { }
+export class SharedModule {
+}

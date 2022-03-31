@@ -1,4 +1,4 @@
-import { Component, ContentChild, ContentChildren, OnInit, QueryList, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ContentChild, ContentChildren, QueryList, TemplateRef, ViewChild } from '@angular/core';
 import { AutocompleteContentDirective } from '../../directives/autocomplete-content.directive';
 import { OptionComponent } from '../option/option.component';
 import { merge, switchMap } from 'rxjs';
@@ -6,7 +6,7 @@ import { merge, switchMap } from 'rxjs';
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss'],
+  styleUrls: [ './autocomplete.component.scss' ],
   exportAs: 'appAutocomplete',
 })
 export class AutocompleteComponent {
@@ -22,7 +22,7 @@ export class AutocompleteComponent {
       switchMap(options => {
         const clicks$ = options.map((option: any) => option.click$);
         return merge(...clicks$);
-      })
+      }),
     );
   }
 }

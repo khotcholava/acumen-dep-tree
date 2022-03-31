@@ -15,12 +15,12 @@ export class OptionComponent implements OnInit {
   constructor(private host: ElementRef) {
   }
 
-  ngOnInit() {
-    this.click$ = fromEvent(this.element, 'click').pipe(mapTo(this.value));
-  }
-
   get element() {
     return this.host.nativeElement;
+  }
+
+  ngOnInit() {
+    this.click$ = fromEvent(this.element, 'click').pipe(mapTo(this.value));
   }
 
 }

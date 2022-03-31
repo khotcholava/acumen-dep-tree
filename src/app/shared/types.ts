@@ -1,27 +1,29 @@
 export interface OptionValue {
-  id:number;
-  label: string
+  id: number;
+  label: string;
 }
 
 export interface PackageInfo {
   description: string;
   maintainers: Maintainers[];
   homepage: string;
-  license: string
+  license: string;
   readme: string;
-  repository: Repository
+  repository: Repository;
   name: string;
   versions: Version;
-  time: Time
+  time: Time;
+  keywords: string[];
 }
 
 export interface Maintainers {
   name: string;
   email: string;
 }
+
 export interface Version extends PackageInfo {
   dependencies: Record<string, string>;
-  version: string
+  version: string;
 }
 
 export interface Time {
@@ -29,9 +31,11 @@ export interface Time {
   created: string;
 }
 
-
-
+export interface Dependency {
+  name: string;
+  version: string;
+}
 export interface Repository {
   type: string;
-  url: string
+  url: string;
 }

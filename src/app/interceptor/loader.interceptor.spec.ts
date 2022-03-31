@@ -5,8 +5,8 @@ import { LoaderInterceptor } from './loader.interceptor';
 describe('LoaderInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      LoaderInterceptor
-      ]
+      LoaderInterceptor,
+    ],
   }));
 
   it('should be created', () => {

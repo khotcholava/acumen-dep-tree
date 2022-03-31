@@ -1,0 +1,7 @@
+<ul>
+  <ng-container *ngFor="let dep of dependencies; trackBy: trackByFn">
+    <app-tree-item
+      [name]="dep.name"
+      [version]="dep.version"></app-tree-item>
+  </ng-container>
+</ul>

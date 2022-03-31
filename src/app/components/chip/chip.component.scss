@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+:host {
+  .chip {
+    @include flexCenter;
+    border-radius: $baseSize / 4;
+    padding: $baseSize / 4;
+    border: 1px solid $borderColor;
+    color: $brandColor;
+    cursor: pointer;
+  }
+}

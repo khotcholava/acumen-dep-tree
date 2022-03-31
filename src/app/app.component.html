@@ -1,12 +1,20 @@
 <app-navbar></app-navbar>
+
+<ng-container *ngIf="!isInfoEmpty">
+  <h1>Search for npm package</h1>
+</ng-container>
+
+<div class="container mt-5">
+  <app-search-container></app-search-container>
+</div>
+
 <ng-container *ngIf="loading | async">
   <app-spinner></app-spinner>
 </ng-container>
+
 <div class="mt-5">
   <app-package-info-header
-  [info]="info | async"
+    [info]="info | async"
+    [dependencies]="deps$ | async"
   ></app-package-info-header>
 </div>
-<ng-container *ngIf="!isInfoEmpty">
-<h1>Search for npm package</h1>
-</ng-container>

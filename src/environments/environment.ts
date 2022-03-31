@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   searchBaseUrl: 'https://registry.npmjs.org/-/v1/search',
-  packageInfoUrl: 'https://registry.npmjs.org'
+  packageInfoUrl: 'https://registry.npmjs.org',
 };
 
 /*

@@ -1,0 +1,19 @@
+<div class="control p-relative">
+  <input [appAutocomplete]="autocomplete"
+         [formControl]="control"
+         class="input"
+         placeholder="Search Package...">
+  <i-feather class="input-icon" name="search"></i-feather>
+
+</div>
+
+<app-autocomplete #autocomplete="appAutocomplete">
+  <ng-template appAutocompleteContent>
+    <ng-container *ngIf="(packages$ | async | filter: control.value) as result">
+      <app-option (click)="onOptionClick(option)" *ngFor="let option of result" [value]="option.label">
+        {{ option.label }}
+      </app-option>
+      <app-option *ngIf="!result.length" class="no-result">No result...</app-option>
+    </ng-container>
+  </ng-template>
+</app-autocomplete>

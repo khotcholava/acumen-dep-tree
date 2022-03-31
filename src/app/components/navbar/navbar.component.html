@@ -1,26 +1,6 @@
 <nav class="navbar">
-  <a href="" class="navbar-brand">
+  <a class="navbar-brand" href="">
     DEP TREE
   </a>
-  <div class="control p-relative">
-    <input class="input"
-           placeholder="Search..."
-           [formControl]="control"
-           [appAutocomplete]="autocomplete">
-    <i-feather class="input-icon" name="search"></i-feather>
-
-  </div>
-
-  <app-autocomplete #autocomplete="appAutocomplete">
-    <ng-template appAutocompleteContent>
-      <ng-container *ngIf="(packages$ | async | filter: control.value) as result">
-        <app-option *ngFor="let option of result" [value]="option.label" (click)="onOptionClick(option)">
-          {{ option.label }}
-        </app-option>
-        <app-option class="no-result" *ngIf="!result.length">No result...</app-option>
-      </ng-container>
-    </ng-template>
-  </app-autocomplete>
-
 </nav>
 

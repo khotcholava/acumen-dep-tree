@@ -3,7 +3,6 @@
 @import "./styles/variables";
 @import "./styles/base";
 
-
 * {
   font-family: $font;
   box-sizing: border-box;
@@ -11,10 +10,16 @@
   margin: 0;
 }
 
-html,body {
+html, body {
   height: 100%;
   width: 100%;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

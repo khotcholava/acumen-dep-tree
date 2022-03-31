@@ -1,0 +1,7 @@
+{
+  "/*": {
+    "target": "https://registry.npmjs.org/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

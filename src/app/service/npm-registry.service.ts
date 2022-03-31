@@ -1,15 +1,24 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PACKAGE_BASE_URL, SEARCH_BASE_URL } from '../tokens';
-import { BehaviorSubject, from, map, mergeMap, Observable, Subject, tap, toArray } from 'rxjs';
-import { PackageInfo } from '../shared/types';
+import { BehaviorSubject, from, map, mergeMap, Observable, tap, toArray } from 'rxjs';
+import { Dependency, PackageInfo } from '../shared/types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NpmRegistryService {
   packageInfo$ = new BehaviorSubject<PackageInfo | null>(null);
-  loading = new Subject<boolean>();
+  dependencies$ = new BehaviorSubject<Dependency[] | null>(null);
+  allExpanded = new BehaviorSubject(false);
+  loading = new BehaviorSubject<boolean>(false);
+
+  constructor(
+    private http: HttpClient,
+    @Inject(SEARCH_BASE_URL) private searchUrl: string,
+    @Inject(PACKAGE_BASE_URL) private packageInfoUrl: string,
+  ) {
+  }
 
   showLoading() {
     this.loading.next(true);
@@ -19,19 +28,20 @@ export class NpmRegistryService {
     this.loading.next(false);
   }
 
+  getDependencies() {
+    return this.dependencies$.asObservable();
+  }
+
+  setDependencies(deps) {
+    this.dependencies$.next(deps);
+  }
+
   getPackageInfo() {
     return this.packageInfo$.asObservable();
   }
 
   setPackageInfo(info: any) {
     this.packageInfo$.next(info);
-  }
-
-  constructor(
-    private http: HttpClient,
-    @Inject(SEARCH_BASE_URL) private searchUrl: string,
-    @Inject(PACKAGE_BASE_URL) private packageInfoUrl: string,
-  ) {
   }
 
   searchPackages(keyword: string) {
@@ -51,9 +61,23 @@ export class NpmRegistryService {
   }
 
   getPackage(keyword: string): Observable<PackageInfo> {
-    console.log(this.loading);
     return this.http.get<PackageInfo>(`${this.packageInfoUrl}/${keyword}`).pipe(
       tap(info => this.setPackageInfo(info)),
+    );
+  }
+
+  getPackageDependencies(keyword: string): Observable<Array<Dependency>> {
+    return this.http.get<Array<Dependency>>(`${this.packageInfoUrl}/${keyword}/latest`).pipe(
+      mergeMap((packages: any) => {
+        const keys = Object.keys(packages.dependencies as Array<Dependency> || {});
+        const deps = keys.map(item => ({
+          name: item,
+          version: packages.dependencies[item],
+        }));
+        return from(deps);
+      }),
+      toArray(),
+      tap(deps => this.setDependencies(deps)),
     );
   }
 }

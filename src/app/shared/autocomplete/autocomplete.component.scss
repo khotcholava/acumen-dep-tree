@@ -1,8 +1,10 @@
 @import "src/styles/variables";
 @import "src/styles/mixins";
+
 :host {
 
 }
+
 .autocomplete {
   background-color: $colorWhite;
   box-shadow: $boxShadow;
