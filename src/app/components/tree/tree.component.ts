@@ -13,13 +13,13 @@ export class TreeComponent implements OnInit {
   @Input() dependencies: Dependency[] = [];
   loading = this.npmRegistryService.loading;
 
-  trackByFn(index, dep: Dependency) {
-    return dep.name;
-  }
-
   constructor(
     private npmRegistryService: NpmRegistryService,
   ) {
+  }
+
+  trackByFn(index, dep: Dependency) {
+    return dep.name;
   }
 
   ngOnInit(): void {

@@ -8,9 +8,9 @@ describe('RepoLinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RepoLinkComponent ]
+      declarations: [ RepoLinkComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

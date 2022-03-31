@@ -8,9 +8,9 @@ describe('PackageIfoHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PackageInfoHeaderComponent ]
+      declarations: [ PackageInfoHeaderComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

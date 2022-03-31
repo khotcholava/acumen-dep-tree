@@ -4,6 +4,7 @@
 :host {
   .info-header {
     position: relative;
+
     &:after {
       content: '';
       position: absolute;
@@ -15,7 +16,6 @@
       background-image: linear-gradient(315deg, $brandColor 0%, #d98324 74%);
     }
   }
-
 
 
 }

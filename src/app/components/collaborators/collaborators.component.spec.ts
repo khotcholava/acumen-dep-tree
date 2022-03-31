@@ -8,9 +8,9 @@ describe('CollaboratorsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollaboratorsComponent ]
+      declarations: [ CollaboratorsComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -35,6 +35,7 @@ export interface Dependency {
   name: string;
   version: string;
 }
+
 export interface Repository {
   type: string;
   url: string;

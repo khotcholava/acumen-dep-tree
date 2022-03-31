@@ -1,10 +1,10 @@
-<li class="tree-item mb-2" (click)="handleTreeItemClick()">
+<li (click)="handleTreeItemClick()" class="tree-item mb-2">
   <div class="tree-item-title">
-      <i-feather
-        [name]="expanded
+    <i-feather
+      [name]="expanded
       ? 'chevron-down'
       : 'chevron-right'"
-        class="color-gray"></i-feather>
+      class="color-gray"></i-feather>
     <span>
       {{name}}
     </span>

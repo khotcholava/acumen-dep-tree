@@ -9,19 +9,6 @@ import { Dependency } from '../../../../shared/types';
   styleUrls: [ './tree-item.component.scss' ],
 })
 export class TreeItemComponent implements OnInit {
-  private _name = '';
-  @Input()
-  set name(value: string) {
-    this._name = value;
-    this.insideDeps$ = this.npmRegistryService.getPackageDependencies(this._name).pipe(
-      tap(val => this.hasChildren = !!val.length),
-    );
-  }
-
-  get name() {
-    return this._name;
-  }
-
   @Input() version = '';
   hasChildren = true;
   insideDeps$: Observable<Dependency[]>;
@@ -31,6 +18,20 @@ export class TreeItemComponent implements OnInit {
     public npmRegistryService: NpmRegistryService,
     private cdr: ChangeDetectorRef,
   ) {
+  }
+
+  private _name = '';
+
+  get name() {
+    return this._name;
+  }
+
+  @Input()
+  set name(value: string) {
+    this._name = value;
+    this.insideDeps$ = this.npmRegistryService.getPackageDependencies(this._name).pipe(
+      tap(val => this.hasChildren = !!val.length),
+    );
   }
 
   ngOnInit(): void {

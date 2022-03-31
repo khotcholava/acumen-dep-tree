@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'na'
+  name: 'na',
 })
 export class NaPipe implements PipeTransform {
 

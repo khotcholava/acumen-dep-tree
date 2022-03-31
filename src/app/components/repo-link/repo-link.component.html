@@ -2,8 +2,8 @@
   <h3 class="section-container-title mr-2">
     Repository
   </h3>
-  <a class="section-container-subtitle" [href]="url | parseUrl">
-    <i-feather name="github" class="color-gray"></i-feather>
+  <a [href]="url | parseUrl" class="section-container-subtitle">
+    <i-feather class="color-gray" name="github"></i-feather>
     {{url | parseUrl | na}}
   </a>
 </div>
@@ -11,8 +11,8 @@
   <h3 class="section-container-title mr-2">
     Homepage
   </h3>
-  <a class="section-container-subtitle" [href]="url | parseUrl">
-    <i-feather name="link" class="color-gray"></i-feather>
+  <a [href]="url | parseUrl" class="section-container-subtitle">
+    <i-feather class="color-gray" name="link"></i-feather>
     {{url | parseUrl | na}}
   </a>
 </div>

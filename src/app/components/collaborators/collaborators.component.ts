@@ -5,13 +5,15 @@ import { GITHUB_USER_URL } from '../../tokens';
 @Component({
   selector: 'app-collaborators',
   templateUrl: './collaborators.component.html',
-  styleUrls: ['./collaborators.component.scss']
+  styleUrls: [ './collaborators.component.scss' ],
 })
 export class CollaboratorsComponent implements OnInit {
-@Input() collaborators: Maintainers[]
+  @Input() collaborators: Maintainers[];
+
   constructor(
-    @Inject(GITHUB_USER_URL) public userUrl: string
-  ) { }
+    @Inject(GITHUB_USER_URL) public userUrl: string,
+  ) {
+  }
 
   ngOnInit(): void {
   }
