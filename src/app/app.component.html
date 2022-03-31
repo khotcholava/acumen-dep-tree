@@ -8,13 +8,16 @@
   <app-search-container></app-search-container>
 </div>
 
-<ng-container *ngIf="loading | async">
-  <app-spinner></app-spinner>
-</ng-container>
 
 <div class="mt-5">
-  <app-package-info-header
+  <app-package-info
     [info]="info | async"
     [dependencies]="deps$ | async"
-  ></app-package-info-header>
+  ></app-package-info>
+</div>
+
+<div class="spinner-container">
+  <ng-container *ngIf="loading | async">
+    <app-spinner></app-spinner>
+  </ng-container>
 </div>

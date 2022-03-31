@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocompleteComponent } from './shared/autocomplete/autocomplete.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,13 +11,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { SharedModule } from './shared/shared.module';
 import { PACKAGE_BASE_URL, SEARCH_BASE_URL } from './tokens';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { IconsModule } from './icons.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { LoaderInterceptor } from './interceptor/loader.interceptor';
-import { PackageInfoHeaderComponent } from './components/package-info-header/package-info-header.component';
+import { PackageInfoComponent } from './components/package-info/package-info.component';
 import { SearchContainerComponent } from './components/search-container/search-container.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ChipComponent } from './components/chip/chip.component';
@@ -31,6 +28,7 @@ import { RepoLinkComponent } from './components/repo-link/repo-link.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { TreeItemComponent } from './components/tree/components/tree-item/tree-item.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PackageInfoHeaderComponent } from './components/package-info-header/package-info-header.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +36,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     NavbarComponent,
     AutocompleteContentDirective,
     AutocompleteDirective,
-    PackageInfoHeaderComponent,
+    PackageInfoComponent,
     FilterPipe,
     SpinnerComponent,
     SearchContainerComponent,
@@ -49,12 +47,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     StatsComponent,
     RepoLinkComponent,
     TreeComponent,
-    TreeItemComponent
+    TreeItemComponent,
+    PackageInfoHeaderComponent,
   ],
   imports: [
     BrowserModule,
     OverlayModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
@@ -75,7 +73,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
       useValue: environment.packageInfoUrl,
       multi: true,
     },
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
 
   ],
   bootstrap: [ AppComponent ],

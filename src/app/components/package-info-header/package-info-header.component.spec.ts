@@ -2,15 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackageInfoHeaderComponent } from './package-info-header.component';
 
-describe('PackageInfoHeaderComponent', () => {
+describe('PackageIfoHeaderComponent', () => {
   let component: PackageInfoHeaderComponent;
   let fixture: ComponentFixture<PackageInfoHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PackageInfoHeaderComponent ],
+      declarations: [ PackageInfoHeaderComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {
