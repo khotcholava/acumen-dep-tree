@@ -29,6 +29,7 @@ import { TreeComponent } from './components/tree/tree.component';
 import { TreeItemComponent } from './components/tree/components/tree-item/tree-item.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PackageInfoHeaderComponent } from './components/package-info-header/package-info-header.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PackageInfoHeaderComponent } from './components/package-info-header/pac
     MatProgressSpinnerModule,
     MarkdownModule.forRoot(),
     MatProgressBarModule,
+    MatTooltipModule,
   ],
   providers: [
     {

@@ -12,6 +12,7 @@
             Dependencies
           </h3>
           <i-feather
+            [matTooltip]="npmRegistryService.allExpanded.value ? 'Collapse tree' : 'Expend tree'"
             (click)="expendAll()"
             [name]="npmRegistryService.allExpanded.value
                     ? 'minimize-2'
