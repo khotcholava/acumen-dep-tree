@@ -41,7 +41,7 @@ export class PackageInfoComponent implements OnInit, AfterViewInit {
 
   getDeps(dependencies: Record<string, string>) {
     const keys = dependencies && Object.keys(dependencies);
-    return keys.map(item => ({
+    return keys?.map(item => ({
       name: item,
       version: dependencies[item],
     }));
